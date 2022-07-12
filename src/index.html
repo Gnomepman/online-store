@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online store</title>
+    <link rel="icon" href="./assets/icons/shopping_bag.svg">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://cdn4.iconfinder.com/data/icons/essentials-74/24/010_-_Bag-256.png" alt="">
+            </a>
+            <div class="cart">
+                <img src="https://cdn0.iconfinder.com/data/icons/elasto-online-store/26/00-ELASTOFONT-STORE-READY_cart-256.png" alt="">
+                <span class="cart__counter" id="cart_counter">
+                    0
+                </span>
+            </div>
+        </div>
+    </header>
+    <section class="options">
+        <div class="container">
+            <div class="filter block">
+                <h3 class="block_header">фильтр по значению</h3>
+                <div class="wrapper">
+                    <div class="manufacture">Производитель:
+                        <button class="manufacture_button samsung active"></button>
+                        <button class="manufacture_button apple active"></button>
+                        <button class="manufacture_button xiaomi active"></button>
+                    </div>
+                    <div class="number_of_cameras">Количество камер:
+                        <button class="cameras_button active">1</button>
+                        <button class="cameras_button">2</button>
+                        <button class="cameras_button">3</button>
+                    </div>
+                    <div class="color">Цвет:
+                        <button class="color_button active black"></button>
+                        <button class="color_button blue"></button>
+                        <button class="color_button light"></button>
+                    </div>
+                    <div class="popular">Только популярные:
+                        <input type="checkbox">
+                    </div>
+                </div>
+            </div>
+            <div class="filter_between block">
+                <h3 class="block_header">фильтр по диапазону</h3>
+                <div class="wrapper">
+                    <div class="quantity">Количество на складе:</div>
+                    <div class="slider_wrapper">
+                        <span id="formatting-start-quantity">0</span>
+                        <div id="slider_quantity"></div>
+                        <span id="formatting-end-quantity">0</span>
+                    </div>
+                    
+                    <div class="release_year">Год выпуска:</div>
+                    <div class="slider_wrapper">
+                        <span id="formatting-start-year">0</span>
+                        <div id="slider_year"></div>
+                        <span id="formatting-end-year">0</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="search block">
+                <h3 class="block_header">поиск</h3>
+                <div class="wrapper">
+                    <input type="search" id="phone_search" name="phone_search" placeholder="Введите текст">
+                    <div class="sorting">Сортировка:</div>
+                    <select name="sorting" id="sorting">
+                        <option value="name_asc">По названию, от А до Я</option>
+                        <option value="name_desc">По названию, от Я до А</option>
+                        <option value="year_asc">По году, по возростанию</option>
+                        <option value="year_desc">По году, по убыванию</option>
+                        <option value="quantity_asc">По количеству, по возвростанию</option>
+                        <option value="quantity_desc">По количеству, по убыванию</option>
+                    </select>
+                    <div class="buttons-wrapper">
+                        <button class="search-button">Сброс фильтров</button>
+                        <button class="search-button">Сброс настроек</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="products">
+        <div class="container">
+            <div class="wrapper">
+                <!-- cards will be here -->
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <a href="https://rs.school/js/" class="logo" target="_blank"></a>
+            <div class="author">
+                <p>© <a href="https://github.com/Gnomepman">Gnomepman</a>, 2022</p>
+            </div>
+        </div>
+    </footer>
+    <template>
+        <div class="card">
+            <h3 class="card_header" id="card_header"></h3>
+            <img src="#" alt="" class="card_img" id="card_image">
+            <div class="card_description"> 
+                <span class="" id="card_name">samsung</span> •
+                <span class="" id="card_year">2020</span> •
+                <span class="" id="card_color">gray</span> •
+                <span class="" id="card_cameras">5 камер</span> •
+                <span class="" id="card_popularity">популярный</span> •
+                <span class="" id="card_quantity">35 штук</span>
+            </div>
+        </div>
+    </template>
+</body>
+<!-- overriding styles for sliders -->
+<style>
+#slider_quantity,
+#slider_quantity .noUi-handle,
+#slider_year,
+#slider_year .noUi-handle  {
+    box-shadow: none;
+}
+
+#slider_quantity .noUi-handle::before,
+#slider_quantity .noUi-handle::after,
+#slider_year .noUi-handle::before,
+#slider_year .noUi-handle::after {
+    display: none;
+}
+
+#slider_quantity, #slider_year{
+    height: 10px;
+}
+
+#slider_quantity .noUi-connect,
+#slider_year .noUi-connect{
+    background: #448AFF;
+}
+
+#slider_quantity .noUi-handle,
+#slider_year .noUi-handle {
+    height: 20px;
+    width: 20px;
+    top: -5px;
+    right: -10px; /* half the width */
+    border-radius: 9px;
+}
+</style>
+</html>
