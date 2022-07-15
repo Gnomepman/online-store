@@ -12,4 +12,12 @@ export interface Iphone {
     number_of_cameras: cameras;
     popularity: boolean;
     quantity: number;
-} 
+}
+
+export type user_options = {
+    manufacture: manufactures[];
+    number_of_cameras: cameras[];
+    color: colors[];
+    range_storage: [number, number];
+    range_year: [number, number];
+}
