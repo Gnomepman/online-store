@@ -1,5 +1,6 @@
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
+import { user_options } from "../types and interfaces/interfaces";
 
 let slider_quantity: noUiSlider.target = document.getElementById('slider_quantity')! as noUiSlider.target;
 let slider_year: noUiSlider.target = document.getElementById('slider_year')! as noUiSlider.target;
@@ -33,3 +34,20 @@ slider_year.noUiSlider?.on('update', function(values){
     document.getElementById('formatting-start-year')!.textContent = String(Math.floor(values[0] as number));
     document.getElementById('formatting-end-year')!.textContent = String(Math.floor(values[1] as number));
 });
+
+slider_quantity.noUiSlider?.on('change', (values) => {
+    let temp: user_options = JSON.parse(localStorage.user_settings);
+    temp.range_storage[0] = Number(values[0]);
+    temp.range_storage[1] = Number(values[1]);
+    localStorage.user_settings = JSON.stringify(temp);
+})
+
+slider_year.noUiSlider?.on('change', (values) => {
+    let temp: user_options = JSON.parse(localStorage.user_settings);
+    temp.range_year[0] = Number(values[0]);
+    temp.range_year[1] = Number(values[1]);
+    localStorage.user_settings = JSON.stringify(temp);
+})
+
+export { slider_quantity };
+export { slider_year };
