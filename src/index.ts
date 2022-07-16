@@ -1,2 +1,2 @@
 import "./style.scss";
-import "./sliders/sliders"
+import './local storage/init settings'
