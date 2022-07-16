@@ -26,23 +26,23 @@
             <div class="filter block">
                 <h3 class="block_header">фильтр по значению</h3>
                 <div class="wrapper">
-                    <div class="manufacture">Производитель:
-                        <button class="manufacture_button samsung active"></button>
-                        <button class="manufacture_button apple active"></button>
-                        <button class="manufacture_button xiaomi active"></button>
+                    <div class="manufacture" id="manufactures">Производитель:
+                        <button class="manufacture_button samsung" id="samsung"></button>
+                        <button class="manufacture_button apple" id="apple"></button>
+                        <button class="manufacture_button xiaomi" id="xiaomi"></button>
                     </div>
-                    <div class="number_of_cameras">Количество камер:
-                        <button class="cameras_button active">1</button>
-                        <button class="cameras_button">2</button>
-                        <button class="cameras_button">3</button>
+                    <div class="number_of_cameras" id="number_of_cameras">Количество камер:
+                        <button class="cameras_button" id="cameras_1">1</button>
+                        <button class="cameras_button" id="cameras_2">2</button>
+                        <button class="cameras_button" id="cameras_3">3</button>
                     </div>
-                    <div class="color">Цвет:
-                        <button class="color_button active black"></button>
-                        <button class="color_button blue"></button>
-                        <button class="color_button light"></button>
+                    <div class="color" id="colors">Цвет:
+                        <button class="color_button black" id="color_black"></button>
+                        <button class="color_button blue" id="color_blue"></button>
+                        <button class="color_button light" id="color_light"></button>
                     </div>
-                    <div class="popular">Только популярные:
-                        <input type="checkbox">
+                    <div class="popular" id="popular">Только популярные:
+                        <input type="checkbox" id="popular_checkbox">
                     </div>
                 </div>
             </div>
@@ -79,8 +79,8 @@
                         <option value="quantity_desc">По количеству, по убыванию</option>
                     </select>
                     <div class="buttons-wrapper">
-                        <button class="search-button">Сброс фильтров</button>
-                        <button class="search-button">Сброс настроек</button>
+                        <button class="search-button" id="reset filters">Сброс фильтров</button>
+                        <button class="search-button" id="reset user options">Сброс настроек</button>
                     </div>
                 </div>
             </div>
