@@ -18,6 +18,8 @@ export type user_options = {
     manufacture: manufactures[];
     number_of_cameras: cameras[];
     color: colors[];
+    popularity: boolean;
     range_storage: [number, number];
     range_year: [number, number];
+    sorting_method : string;
 }
