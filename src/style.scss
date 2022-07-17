@@ -287,7 +287,7 @@ footer{
 
   .card{
     width: 220px;
-    display: flex;
+    // display: flex !important;
     flex-direction: column;
     background: #2196F3;
     border-radius: 5px;
@@ -314,6 +314,7 @@ footer{
     img{
       margin-top: 5px;
       // max-width: 200px;
+      align-self: center;
       border-radius: 10px;
       max-height: 255px;
     }
@@ -324,4 +325,12 @@ footer{
   cursor: pointer;
   background-color: #2a89d7;
   transition: 0.3s;
+}
+
+.filtered{
+  display: none;
+}
+
+.flex{
+  display: flex;
 }
