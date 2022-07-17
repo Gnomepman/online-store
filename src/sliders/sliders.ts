@@ -1,6 +1,7 @@
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import { user_options } from "../types and interfaces/interfaces";
+import { filter_cards } from "../cards/cards filter";
 
 let slider_quantity: noUiSlider.target = document.getElementById('slider_quantity')! as noUiSlider.target;
 let slider_year: noUiSlider.target = document.getElementById('slider_year')! as noUiSlider.target;
@@ -40,6 +41,7 @@ slider_quantity.noUiSlider?.on('change', (values) => {
     temp.range_storage[0] = Number(values[0]);
     temp.range_storage[1] = Number(values[1]);
     localStorage.user_settings = JSON.stringify(temp);
+    filter_cards();
 })
 
 slider_year.noUiSlider?.on('change', (values) => {
@@ -47,6 +49,7 @@ slider_year.noUiSlider?.on('change', (values) => {
     temp.range_year[0] = Number(values[0]);
     temp.range_year[1] = Number(values[1]);
     localStorage.user_settings = JSON.stringify(temp);
+    filter_cards();
 })
 
 export { slider_quantity };
