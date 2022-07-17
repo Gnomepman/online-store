@@ -1,6 +1,7 @@
 import { cameras, colors, manufactures, user_options } from "../types and interfaces/interfaces";
 import { slider_quantity } from "../sliders/sliders";
 import { slider_year } from "../sliders/sliders";
+import { filter_cards } from "../cards/cards filter";
 
 const reset_filters: HTMLElement = document.getElementById("reset filters")!;
 const reset_user_settings: HTMLElement = document.getElementById("reset user options")!;
@@ -17,6 +18,7 @@ reset_filters.addEventListener("click", () => {
     sorting_method: (<HTMLSelectElement>document.getElementById("sorting"))!.value,
   });
   apply_user_settings();
+  filter_cards();
 });
 
 reset_user_settings.addEventListener('click', () => {
@@ -51,6 +53,7 @@ Array.from(document.querySelector("#manufactures")!.children).forEach(element =>
       }
 
       localStorage.user_settings = JSON.stringify(temp);
+      filter_cards();
     });
 });
 
@@ -71,6 +74,7 @@ Array.from(document.querySelector("#number_of_cameras")!.children).forEach(eleme
       }
 
       localStorage.user_settings = JSON.stringify(temp);
+      filter_cards();
     });
 })
 
@@ -87,6 +91,7 @@ Array.from(document.querySelector("#colors")!.children).forEach(element => {
       }
 
       localStorage.user_settings = JSON.stringify(temp);
+      filter_cards();
     });
 })
 
@@ -96,6 +101,7 @@ document.getElementById("popular_checkbox")!.onchange = (e) => {
     temp.popularity = checkbox.checked
     localStorage.user_settings = JSON.stringify(temp);
     apply_user_settings();
+    filter_cards();
 }
 
 export function apply_user_settings(settings: user_options = JSON.parse(localStorage.user_settings)) {
