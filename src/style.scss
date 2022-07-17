@@ -281,10 +281,12 @@ footer{
   .wrapper{
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center
   }
 
   .card{
-    width: 225px;
+    width: 220px;
     display: flex;
     flex-direction: column;
     background: #2196F3;
@@ -311,8 +313,9 @@ footer{
 
     img{
       margin-top: 5px;
-      width: 200px;
+      // max-width: 200px;
       border-radius: 10px;
+      max-height: 255px;
     }
   }
 }
