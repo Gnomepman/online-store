@@ -2,6 +2,7 @@ import { user_options } from "../types and interfaces/interfaces";
 import { manufactures } from "../types and interfaces/interfaces";
 import { colors } from "../types and interfaces/interfaces";
 import { cameras } from "../types and interfaces/interfaces";
+import { sort_cards } from "./cards sort";
 
 export function filter_cards(settings: user_options = JSON.parse(localStorage.user_settings) as user_options){
     const cards = document.getElementById("cards")!.children;
@@ -33,7 +34,7 @@ export function filter_cards(settings: user_options = JSON.parse(localStorage.us
           hide(element);
         }
     }
-    //sort_cards()
+    sort_cards();
 }
 
 /*
