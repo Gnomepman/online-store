@@ -2,6 +2,7 @@ import { cameras, colors, manufactures, user_options } from "../types and interf
 import { slider_quantity } from "../sliders/sliders";
 import { slider_year } from "../sliders/sliders";
 import { filter_cards } from "../cards/cards filter";
+import { sort_cards } from "../cards/cards sort";
 
 const reset_filters: HTMLElement = document.getElementById("reset filters")!;
 const reset_user_settings: HTMLElement = document.getElementById("reset user options")!;
@@ -21,23 +22,25 @@ reset_filters.addEventListener("click", () => {
   filter_cards();
 });
 
-reset_user_settings.addEventListener('click', () => {
-    localStorage.user_settings = JSON.stringify({
-        manufacture: [],
-        number_of_cameras: [],
-        color: [],
-        popularity: false,
-        range_storage: [5, 50],
-        range_year: [2016, 2022],
-        sorting_method: 'name_asc',
-      });
-      apply_user_settings();
+reset_user_settings.addEventListener("click", () => {
+  localStorage.user_settings = JSON.stringify({
+    manufacture: [],
+    number_of_cameras: [],
+    color: [],
+    popularity: false,
+    range_storage: [5, 50],
+    range_year: [2016, 2022],
+    sorting_method: "name_asc",
+  });
+  apply_user_settings();
+  filter_cards();
 });
 
 select_sorting.addEventListener('change', () => {
     let temp: user_options = JSON.parse(localStorage.user_settings);
     temp.sorting_method = select_sorting.value;
     localStorage.user_settings = JSON.stringify(temp);
+    sort_cards();
 });
 
 Array.from(document.querySelector("#manufactures")!.children).forEach(element => {
