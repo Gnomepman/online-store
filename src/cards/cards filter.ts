@@ -6,8 +6,16 @@ import { sort_cards } from "./cards sort";
 
 export function filter_cards(settings: user_options = JSON.parse(localStorage.user_settings) as user_options){
     const cards = document.getElementById("cards")!.children;
+    const field: HTMLInputElement = document.getElementById("phone_search")! as HTMLInputElement;
     for (const element of cards){
         dispay(element);
+        
+        if(field.value.length !== 0){
+         // let reg = new RegExp(field.value, 'i');
+          if(!new RegExp(field.value, 'i').test(element.querySelector("#card_header")!.textContent!)){
+            hide(element);
+          }
+        }
         if(settings.manufacture.length > 0 && !(settings.manufacture.includes(element.querySelector("#card_name")!.textContent as manufactures))){
           hide(element);
         }
