@@ -18,4 +18,6 @@ import { apply_user_settings } from "./events on buttons"
     user_settings = JSON.parse(localStorage.user_settings);
   }
   apply_user_settings(user_settings);
+
+  document.getElementById("phone_search")!.focus();
 })();
