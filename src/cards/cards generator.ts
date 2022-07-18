@@ -16,7 +16,31 @@ function generate_cards(){
         (template.content.querySelector("#card_quantity") as HTMLSpanElement).textContent = String('на складе: ' + element.quantity);
         area.appendChild(template.content.cloneNode(true)!);
     });
-
+    Array.from(document.getElementById("cards")!.children).forEach(function (element){
+        element.addEventListener("click", (e) => {
+          
+            if (element.classList.contains("in-cart")) {
+              element.classList.remove("in-cart");
+              document.getElementById("cart_counter")!.textContent = String(
+                Number(document.getElementById("cart_counter")!.textContent) - 1
+              );
+            } else {
+              if (
+                Number(document.getElementById("cart_counter")!.textContent) ===
+                20
+              ) {
+                alert("Невозможно добавить, в корзине 20 товаров");
+              } else {
+                element.classList.add("in-cart");
+                document.getElementById("cart_counter")!.textContent = String(
+                  Number(document.getElementById("cart_counter")!.textContent) +
+                    1
+                );
+              }
+            }
+          
+        });
+    });
     filter_cards();
 }
 
